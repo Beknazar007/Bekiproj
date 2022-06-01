@@ -15,8 +15,8 @@ public class UserService {
                         "Beknazar",
                         "Saittegin",
                         "beki@gmail.com",
-                        "Beki",
-                        "3"
+                        23
+
 
                 )
         );

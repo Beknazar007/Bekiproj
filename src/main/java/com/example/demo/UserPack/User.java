@@ -1,28 +1,76 @@
 package com.example.demo.UserPack;
 
-public class User {
-    private Long id;
-    private String name;
-    private String surname;
-    private String email;
-    private String nick;
-    private String password;
+import javax.persistence.*;
 
-    public User(Long id, String name, String surname, String email, String nick, String password) {
+import static javax.persistence.GenerationType.SEQUENCE;
+
+@Entity(name = "User")
+@Table(
+        name = "user",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "user_email_unique", columnNames = "email")
+        }
+)
+public class User {
+
+    @Id
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = SEQUENCE,
+            generator = "user_sequence"
+    )
+    @Column(
+            name = "id",
+            updatable = false
+    )
+    private Long id;
+
+    @Column(
+            name = "first_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String firstName;
+
+    @Column(
+            name = "last_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String lastName;
+
+    @Column(
+            name = "email",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
+    private String email;
+
+    @Column(
+            name = "age",
+            nullable = false
+
+    )
+    private Integer age;
+
+    public User(Long id,
+                String firstName,
+                String lastName,
+                String email,
+                Integer age) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.nick = nick;
-        this.password = password;
+        this.age = age;
     }
 
-    public User(String name, String surname, String email, String nick, String password) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.nick = nick;
-        this.password = password;
+    public User() {
+
     }
 
     public Long getId() {
@@ -33,20 +81,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -57,31 +105,22 @@ public class User {
         this.email = email;
     }
 
-    public String getNick() {
-        return nick;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Student{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", nick='" + nick + '\'' +
-                ", password='" + password + '\'' +
+                ", age=" + age +
                 '}';
     }
 }
