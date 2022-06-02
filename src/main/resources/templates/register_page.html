@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
@@ -12,7 +12,7 @@
 <div class="testbox">
     <h1>Registration</h1>
 
-    <form action="/">
+    <form >
         <hr>
         <label id="icon" for="email"><i class="icon-envelope "></i></label>
         <input type="email" name="email" id="email" placeholder="Email" required/>
@@ -27,7 +27,7 @@
             <label for="female" class="radio">Female</label>
         </div>
         <a href="/login" class="button">Login</a>
-        <a href="#" class="button">Register</a>
+        <a href="#" method="post" action="/register"  th:object="${registerRequest}" class="button">Register</a>
     </form>
 </div>
 </body>
