@@ -16,11 +16,13 @@ public class UsersController {
         this.usersService = usersService;
     }
 
+
     @GetMapping("/register")
     public String getRegisterPage(Model model)  {
         model.addAttribute("registerRequest", new UsersModel());
         return "register_page";
     }
+
 
     @GetMapping("/login")
     public String getLoginPage(Model model)  {
@@ -37,9 +39,10 @@ public class UsersController {
         return registeredUser == null ? "error_page" : "redirect:/login";
     }
 
+
     @PostMapping("/login")
     public String login(@ModelAttribute UsersModel usersModel){
-        System.out.println("register request: " + usersModel);
+        System.out.println("login request: " + usersModel);
         UsersModel authenticateUser = usersService.authenticate(usersModel.getLogin(), usersModel.getPassword());
     if (authenticateUser != null){
      return "order_page";
