@@ -4,12 +4,9 @@ import javax.persistence.*;
 
 import java.util.Objects;
 
-@Entity(name = "User")
+@Entity
 @Table(
-        name = "user_table",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "user_email_unique", columnNames = "email")
-        }
+        name = "user_table"
 )
 public class UsersModel {
 

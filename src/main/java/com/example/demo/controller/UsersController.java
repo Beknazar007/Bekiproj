@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.UsersModel;
 import com.example.demo.service.UsersService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +13,7 @@ public class UsersController {
     private final UsersService usersService;
 
     public UsersController(UsersService usersService) {
+
         this.usersService = usersService;
     }
 
@@ -36,7 +37,11 @@ public class UsersController {
     public String rigister(@ModelAttribute UsersModel usersModel){
         System.out.println("register request: " + usersModel);
         UsersModel registeredUser = usersService.registerUser(usersModel.getLogin(), usersModel.getPassword(), usersModel.getEmail());
-        return registeredUser == null ? "error_page" : "redirect:/login";
+        if(registeredUser == null){
+            return "error_page";
+        }else{
+            return "login_page";
+        }
     }
 
 

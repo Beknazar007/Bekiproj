@@ -9,15 +9,14 @@ public class UsersService {
 
     private final UsersRepository userRepository;
     public UsersService(UsersRepository userRepository){
+
         this.userRepository = userRepository;
     }
 
     public UsersModel registerUser(String login, String password, String email){
-        if (login != null && password != null){
+        if (login == null || password == null){
             return null;
-        }
-
-        else{
+        }else{
             UsersModel userModel = new UsersModel();
             userModel.setLogin(login);
             userModel.setPassword(password);
