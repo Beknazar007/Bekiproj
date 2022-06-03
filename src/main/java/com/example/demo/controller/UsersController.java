@@ -50,7 +50,7 @@ public class UsersController {
         System.out.println("login request: " + usersModel);
         UsersModel authenticateUser = usersService.authenticate(usersModel.getLogin(), usersModel.getPassword());
     if (authenticateUser != null){
-     return "index";
+     return "booking";
     }else{
         return "error_page";
     }
