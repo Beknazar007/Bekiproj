@@ -53,7 +53,8 @@ public class UsersController {
      return "booking";
     }else{
         return "error_page";
-    }
+        }
+
     }
 
 }
