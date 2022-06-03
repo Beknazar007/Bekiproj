@@ -1,5 +1,5 @@
-# Quote Shop.
-## Simple shop project with Spring framework.
+# Kantin Foods.
+## Simple project with Spring framework.
 
 by Saitov Beknazar.
 
