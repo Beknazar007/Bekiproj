@@ -1,10 +1,9 @@
 # Kantin Foods.
 ## Simple project with Spring framework.
 
-by Saitov Beknazar.
 
 Deployment: https://shavuha.herokuapp.com/ (HEROKU) <br>
-
+Database: PostgreSQL(HEROKU) <br>
 Language: Java <br>
 Version: 8 <br>
 Spring version: 2.7 <br>
