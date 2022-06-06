@@ -31,5 +31,10 @@ pipeline {
                 mapconfig(surname:"Saittegin",name:"Beknazar")
             }
         }
+        stage('Send email'){
+        steps{
+            sendemail(body:"beknazar",subject: "it is sendemail with smtp server \n Assalam Aleikum")
+        }
+        }
     }
 }
